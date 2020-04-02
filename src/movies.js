@@ -39,17 +39,16 @@ orderByYear(movies);
 function howManyMovies(arr){
     let totalCount = 0
     for(i=0; i<arr.length; i++){
-      let bothConditions = movies[i].genre.includes("Drama") && movies[i].director.includes("Steven Spielberg");
-      if(bothConditions == true) {
+      let bothConditions = arr[i].genre.includes('Drama') && arr[i].director.includes('Steven Spielberg');
+      if(bothConditions) {
        totalCount++
-     };
+     }
     }
     return totalCount
-  }
+  };
   
-  howManyMovies(movies);
 
-// Iteration 3: Alphabetic Order - Order by title and print the first 20 titles
+// ITERATION 3: Alphabetic Order - Order by title and print the first 20 titles
 
 function compare(movieA,movieB) {
     const closerToA= movieA.title;
@@ -60,47 +59,59 @@ function compare(movieA,movieB) {
         comparison = 1;
     } else if (closerToA < furtherFromA) {
         comparison = -1;
-    } 
+    // } else if (closerToA.match(/^\d/) == true || furtherFromA.match(/^\d/) == true){
+    //     comparison = 0;
+    }
     return comparison
+    
 }
 
 let alphArray = movies.sort(compare);
 
 function orderAlphabetically(arr){
-  let finalAlphArr = [];
-  for(i=0; i<arr.length; i++){
-    let justTitleObj = {title: "something"};
-    justTitleObj.title = alphArray[i].title;
-    finalAlphArr.push(justTitleObj);
-  }
-return finalAlphArr;
-}
+    let finalAlphArr = [];
+    let firstTwenty = [];
+    for(i=0; i<arr.length; i++){
+        let justTitleObj = {title: "something"};
+        justTitleObj.title = alphArray[i].title;
+        finalAlphArr.push(justTitleObj);
+    }
+    //return finalAlphArr;
+
+    // ++ Attempt to remove a title if it contains a number ++
+
+    // if(finalAlphArr.title.match(/^\d/) == true)){
+    //     delete finalAlphArr.title
+    // }
+
+    if(finalAlphArr.length>=20){
+            for(i=0; i<20; i++){
+                firstTwenty.push(finalAlphArr[i])
+            }
+    } else if (arr.length<20){
+            for(i=0; i<arr.length; i++){
+                firstTwenty.push(finalAlphArr[i])
+            }
+    }
+    return firstTwenty
+    }
+//
+//orderAlphabetically(movies);
 
 
 
-orderAlphabetically(movies);
 
 
 
-// let firstTwenty = [];
 
-// const orderAlphabetically = (arr) => {
-//     if(arr.length>=20){
-//         for(i=0; i<20; i++){
-//             firstTwenty.push(arr[i])
-//         }
-//     } else if (arr.length<20){
-//         for(i=0; i<arr.length; i++){
-//             firstTwenty.push(arr[i])
-//         }
-//     }
-//     return firstTwenty
-//     //let alphebetizedMovies = firstTwenty.
-// }
-
-// orderAlphabetically(movies);
 
 // Iteration 4: All rates average - Get the average of all rates with 2 decimals
+
+const ratesAverage = (arr) => {
+
+}
+
+ratesAverage();
 
 // Iteration 5: Drama movies - Get the average of Drama Movies
 
