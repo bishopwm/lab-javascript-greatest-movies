@@ -51,22 +51,54 @@ function howManyMovies(arr){
 
 // Iteration 3: Alphabetic Order - Order by title and print the first 20 titles
 
-let firstTwenty = [];
+function compare(movieA,movieB) {
+    const closerToA= movieA.title;
+    const furtherFromA = movieB.title;
 
-const orderAlphabetically = (arr) => {
-    if(arr.length>=20){
-        for(i=0; i<20; i++){
-            firstTwenty.push(arr[i])
-        }
-    } else if (arr.length<20){
-        for(i=0; i<arr.length; i++){
-            firstTwenty.push(arr[i])
-        }
-    }
-    return firstTwenty
+    let comparison = 0;
+    if (closerToA > furtherFromA) {
+        comparison = 1;
+    } else if (closerToA < furtherFromA) {
+        comparison = -1;
+    } 
+    return comparison
 }
 
+let alphArray = movies.sort(compare);
+
+function orderAlphabetically(arr){
+  let finalAlphArr = [];
+  for(i=0; i<arr.length; i++){
+    let justTitleObj = {title: "something"};
+    justTitleObj.title = alphArray[i].title;
+    finalAlphArr.push(justTitleObj);
+  }
+return finalAlphArr;
+}
+
+
+
 orderAlphabetically(movies);
+
+
+
+// let firstTwenty = [];
+
+// const orderAlphabetically = (arr) => {
+//     if(arr.length>=20){
+//         for(i=0; i<20; i++){
+//             firstTwenty.push(arr[i])
+//         }
+//     } else if (arr.length<20){
+//         for(i=0; i<arr.length; i++){
+//             firstTwenty.push(arr[i])
+//         }
+//     }
+//     return firstTwenty
+//     //let alphebetizedMovies = firstTwenty.
+// }
+
+// orderAlphabetically(movies);
 
 // Iteration 4: All rates average - Get the average of all rates with 2 decimals
 
