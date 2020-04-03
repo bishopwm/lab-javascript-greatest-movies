@@ -98,22 +98,51 @@ function orderAlphabetically(arr){
 //
 //orderAlphabetically(movies);
 
-
-
-
-
-
-
-
 // Iteration 4: All rates average - Get the average of all rates with 2 decimals
 
-const ratesAverage = (arr) => {
+function ratesAverage(arr){
+    let sum = 0;
+    if(arr.length === 0){
+        return 0
+    }
+    
+    for(i=0; i<arr.length; i++){
+        if(arr[i].rate){ // check if the rate of the movie exists
+            sum += arr[i].rate;
+        }
+    }
 
+    let avg = sum/arr.length;
+    return Number(avg.toFixed(2));
 }
-
-ratesAverage();
+// function ratesAverage(arr){
+//     movies.reduce(function(sum, movie){
+//         if(movie.rate){
+//             return sum + movie.rate;
+//             }
+//         }, 0);
+//       let ratingsAverage = sum/movies.length
+//       return Number(ratingsAverage.toFixed(2));
+      
+//     }
 
 // Iteration 5: Drama movies - Get the average of Drama Movies
+
+function dramaMoviesRate(rr){
+    let justDramas = [];
+    for(i=0; i<movies.length; i++){
+        if(movies[i].genre.includes('Drama')){
+            justDramas.push(movies[i])
+        }
+        return justDramas;
+    }
+    // const ratingsSum = movies.reduce(function(sum, movie){
+    //     return sum + movie.rate;
+    //   }, 0);
+    //   let ratingsAverage = ratingsSum/movies.length
+    //   let rounded = Math.round(ratingsAverage * 100) / 100
+    //   return rounded
+}
 
 // Iteration 6: Time Format - Turn duration of the movies from hours to minutes
 
