@@ -128,21 +128,28 @@ function ratesAverage(arr){
 
 // Iteration 5: Drama movies - Get the average of Drama Movies
 
-function dramaMoviesRate(rr){
-    let justDramas = [];
-    for(i=0; i<movies.length; i++){
-        if(movies[i].genre.includes('Drama')){
-            justDramas.push(movies[i])
-        }
-        return justDramas;
-    }
+const dramaMoviesRate = (arr) => {
+    let dramaArr = arr.filter((eachMovie) => {
+        return eachMovie.genre.indexOf("Drama") >= 0
+    })
+    return ratesAverage(dramaArr);
+}
+
+// function dramaMoviesRate(rr){
+//     let justDramas = [];
+//     for(i=0; i<movies.length; i++){
+//         if(movies[i].genre.includes('Drama')){
+//             justDramas.push(movies[i])
+//         }
+//         return justDramas;
+//     }
     // const ratingsSum = movies.reduce(function(sum, movie){
     //     return sum + movie.rate;
     //   }, 0);
     //   let ratingsAverage = ratingsSum/movies.length
     //   let rounded = Math.round(ratingsAverage * 100) / 100
     //   return rounded
-}
+
 
 // Iteration 6: Time Format - Turn duration of the movies from hours to minutes
 
