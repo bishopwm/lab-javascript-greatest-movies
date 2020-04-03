@@ -30,7 +30,7 @@ function orderByYear(arr){
   return finalSortedArr;
 }
 
-orderByYear(movies);
+
 
 //let sortedArrayVar = orderByYear(movies);
 
